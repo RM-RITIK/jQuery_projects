@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>miniProject-jQuery</title>
+    <script type = "text/javascript" src="jquery-3.3.1.min.js"></script>
+   
+    <style type = "text/css">
+    body {
+        font-family: helvetica, sans-serif;
+
+    }
+    input {
+        padding-left: 8px;
+        border: 1px solid grey;
+        width: 200px;
+        
+    }
+    #wrapper {
+        width: 500px;
+        margin: 0 auto;
+    }
+    label {
+        position: relative;
+        top: 4px;
+        width: 200px;
+        width: 150px;
+        float: left;
+    }
+    .formElement {
+        margin-top: 5px;
+    }
+    #submitButton {
+        width: 100px;
+        position: relative;
+        left: 262px;
+        border: 2px solid grey;
+    }
+    #error {
+    color: red;
+    font-size: 80%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    </style>
+</head>
+<body>
+    <div id = "wrapper">
+    <div id = "error"></div>
+    <div class = "formElement">
+    <label for = "email"> Email: </label>
+    <input type="email" name = "email" id = "email" placeholder="abc@gmail.com">
+    </div>
+    <div class = "formElement">
+    <label for="phone">Telephone: </label>
+    <input type = "text" name="phone" id="phone" placeholder="eg. 8527315621">
+    <div class = "formElement">
+        <label for="password">Password: </label>
+        <input type="password" name="password" id="password" placeholder="Password">
+    </div>
+    <div class="formElement">
+        <input type="submit" id="submitButton" value="sign up">
+    </div>
+    </div>
+
+
+    </div>
+    <script type="text/javascript">
+    function validateEmail($email) {
+        var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+        return emailReg.test( $email );
+}
+    $("#submitButton").click(function() {
+        var errorMessage = "";
+        if(validateEmail($("#email").val()) == false || $("#email").val() == "") {
+            errorMessage = errorMessage + "write a valid email address ";
+        }
+        if($.isNumeric($("#phone").val()) == false) {
+            if(errorMessage == "") {
+                errorMessage = errorMessage + "write a valid phone number.";
+            }
+            else {
+                errorMessage = errorMessage + " and phone number.";
+            }
+        }
+        if($("#password").val() == "") {
+            errorMessage = errorMessage + " The password field can't be empty.";
+        }
+        if(errorMessage != "") {
+            $("#error").html(errorMessage);
+        }
+        else {
+            $("#error").hide( 100 , function() {
+                alert("you have signed up successfully!")
+            });
+        
+        }
+    
+    
+        
+        
+    
+
+    });
+
+    </script>
+
+
+    
+</body>
+</html>

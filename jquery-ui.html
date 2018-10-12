@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type = "text/javascript" src="jquery-3.3.1.min.js"></script>
+    <link href="jqui/jquery-ui.css" rel="stylesheet">
+    <script src="jqui/jquery-ui.js"></script>
+    <title>jQuery-ui</title>
+    <style type="text/css">
+    #resizable {
+        height: 100px;
+        width: 100px;
+        background-color: red;
+    
+    }
+    #container {
+        height: 400px;
+        width: 400px;
+        background-color: blue;
+    }
+    #resizable1 {
+        height: 100px;
+        width: 100px;
+        background-color: green;
+    }
+    #draggable2 {
+        height: 100px;
+        width: 100px;
+        background-color: red;
+    }
+    #droppable2 {
+        height: 300px;
+        width: 300px;
+        background-color: green;
+    }
+    </style>
+</head>
+<body>
+    <div id = "draggable"> Drag Me horizontally!</div>
+    <div id = "draggable1">Drag Me vertically!</div>
+    <div id = "resizable"></div>
+    <div id="container">
+        <div id = "resizable1">I am resticted in this container.</div>
+    </div>
+    <div id = "draggable2"></div>
+    <div id="droppable2"></div>
+    <div id="accordion">
+        <h3>Section1</h3>
+        <div>
+            <P>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam a distinctio ex 
+                reiciendis magnam et autem dolore, consequuntur ullam fuga iste 
+                alias optio sequi quidem incidunt ipsam. Non, corrupti sint?
+            </P>
+        </div>
+        <h3>Section2</h3>
+        <div>
+            <P>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam a distinctio ex 
+                reiciendis magnam et autem dolore, consequuntur ullam fuga iste 
+                alias optio sequi quidem incidunt ipsam. Non, corrupti sint?
+            </P>
+        </div>
+        <h3>Section3</h3>
+        <div>
+            <P>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam a distinctio ex 
+                reiciendis magnam et autem dolore, consequuntur ullam fuga iste 
+                alias optio sequi quidem incidunt ipsam. Non, corrupti sint?
+            </P>
+        </div>
+        <h3>Section4</h3>
+        <div>
+            <P>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam a distinctio ex 
+                reiciendis magnam et autem dolore, consequuntur ullam fuga iste 
+                alias optio sequi quidem incidunt ipsam. Non, corrupti sint?
+            </P>
+        </div>
+    </div>
+    <script type="text/javascript">
+    $( "#draggable" ).draggable({ axis: "x" });
+    $( "#draggable1" ).draggable({ axis: "y" });
+    $( "#resizable" ).resizable();
+    $( "#resizable1" ).resizable({
+      containment: "#container"
+    });
+    $( "#draggable2" ).draggable();
+    $( "#droppable2" ).droppable({
+        drop: function( event, ui ) {
+            alert("dropped!");
+        }
+    });
+    $( "#accordion" ).accordion();
+
+    </script>
+    
+</body>
+</html>

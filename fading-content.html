@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>fadingContent </title>
+    <script  type = "text/javascript" src="jquery-3.3.1.min.js"></script>
+    <style type = "text/css">
+    #circle {
+        height: 150px;
+        width: 150px;
+        background-color: red;
+        margin: 10px;
+        border-radius: 50%;
+    }
+    .square {
+        height: 150px;
+        width: 150px;
+        background-color: blue;
+        margin: 10px;
+    }
+    #hiddenText {
+        display: none;
+
+    }    
+    </style>
+</head>
+<body>
+    <div id = "circle"></div>
+    <div class = "square"></div>
+    <div class = "square"></div>
+    <P id = "visibleText">this is a paragraph.</P>
+    <p id = "hiddenText">this is a hidden paragraph</p>
+    <p id = "toggleText">this text will toggle!</p>
+    <button id = "fade">fade this paragraph</button>
+    <br>
+    <button id = "fadeIn">Show the hidden text</button>
+    <br>
+    <button id = "toggle">toggle the text</button>
+    <script type = "text/javascript">
+    $("#circle").click(function() 
+    {
+        $(this).animate({
+            height: "400px",
+            width: "400px",
+            marginLeft:"100px",
+            marginTop:"100px",
+        }, 2000, function() {
+            $(this).css("background-color", "blue");
+        })
+     
+    });
+    $("#fade").click(function() {
+        $("#visibleText").fadeOut();
+    });
+    $("#fadeIn").click(function() {
+        $("#hiddenText").fadeIn();
+    });
+    $("#toggle").click(function() {
+        if($("#toggleText").css("display") == "none") {
+            $("#toggleText").fadeIn();
+        }
+        else {
+            $("#toggleText").fadeOut();
+        }
+    });
+    
+    
+    
+    </script>
+    
+</body>
+</html>
